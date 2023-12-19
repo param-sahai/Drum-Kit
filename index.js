@@ -41,6 +41,7 @@ document.querySelectorAll(".drum")[i].addEventListener("click", function(){
     var key = this.innerHTML;
     // console.log(btnInnerHTML);
     playAudio(key);
+    buttonAnimation(key);
     
 });
 }
@@ -49,4 +50,14 @@ document.addEventListener("keypress", function(event){
     // alert("Key was pressed!");
     var key = (event.key);
     playAudio(key);
+    buttonAnimation(key);
 })
+
+
+function buttonAnimation(key){
+    var activeButton = document.querySelector("."+key);
+    activeButton.classList.add("pressed");
+    setTimeout(function(){
+        activeButton.classList.remove("pressed");
+    }, 100);
+}
